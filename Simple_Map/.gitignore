@@ -1,0 +1,6 @@
+# Ignore the config.js file.
+config.js
+
+## Add .DS_Store
+
+.DS_Store
