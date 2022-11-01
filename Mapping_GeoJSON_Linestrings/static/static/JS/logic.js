@@ -8,8 +8,9 @@ let torontoData = "https://raw.githubusercontent.com/mmcdan13/Mapping_Earthquake
 d3.json(torontoData).then(function(data) {
   console.log(data);
 // Creating a GeoJSON layer with the retrieved data.
-L.geoJSON(data,
-  {onEachFeature: function(feature, layer) {
+L.geoJSON(data,{
+  style:myStyle,
+  onEachFeature: function(feature, layer) {
     console.log(layer);
     layer.bindPopup("<h2>" + feature.properties.name + "</h2>");
 }
@@ -48,3 +49,9 @@ let map = L.map('mapid', {
 
 // Pass our map layers into our layers control and add the layers control to the map.
 L.control.layers(baseMaps).addTo(map);
+
+// Create a style for the lines.
+let myStyle = {
+  color: "#ffffa1",
+  weight: 2
+}
